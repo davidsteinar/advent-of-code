@@ -1,50 +1,29 @@
 using System.Collections.Generic;
 using System;
 using System.Linq;
+using AdventOfCode.Data;
 
-namespace adventofcode
+namespace AdventOfCode
 {
-    class Day2
+    public class Day2
     {
-
-        private string pathToData = @"./data/day2.txt";
-        private int D;
+        public string pathToData = @"./data/day2.txt";
         private int[,] rangeArray;
         private char[] keyArray;
         private string[] passwordArray;
-
-        public Day2()
-        {
-            this.readData();
+        private int D;
+        private DataHandler _dataHandler;
+        public Day2(DataHandler dataHandler){
+            this._dataHandler = dataHandler;
         }
 
-        private void readData()
+        public void ReadData()
         {
-            string[] lines = System.IO.File.ReadAllLines(this.pathToData);
-            int D = lines.Length;
-            int[,] rangeArray = new int[D, 2];
-            char[] keyArray = new char[D];
-            string[] passwordArray = new string[D];
-
-            for (int l = 0; l < D; l++)
-            {
-                var splitLine = lines[l].Split(" ");
-                var range = splitLine[0].Split("-");
-                rangeArray[l, 0] = int.Parse(range[0]);
-                rangeArray[l, 1] = int.Parse(range[1]);
-
-                keyArray[l] = splitLine[1][0];
-
-                passwordArray[l] = splitLine[2];
-            };
-
-            this.D = D;
-            this.rangeArray = rangeArray;
-            this.keyArray = keyArray;
-            this.passwordArray = passwordArray;
+            (this.rangeArray, this.keyArray, this.passwordArray) = this._dataHandler.readDataDay2(this.pathToData);
+            this.D = this.keyArray.Length;
         }
 
-        public int solvePart1()
+        public int SolvePart1()
         {
             int totalMatches = 0;
             for (int i = 0; i < this.D; i++)
@@ -61,7 +40,7 @@ namespace adventofcode
             return totalMatches;
         }
 
-        public int solvePart2()
+        public int SolvePart2()
         {
             int totalMatches = 0;
             for (int i = 0; i < this.D; i++)

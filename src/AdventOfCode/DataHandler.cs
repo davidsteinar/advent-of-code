@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace adventofcode.Data{
-    class DataHandler{
+namespace AdventOfCode.Data{
+    public class DataHandler{
         private string[] readTxtFile(string path){
             return System.IO.File.ReadAllLines(path);
         }

@@ -1,17 +1,15 @@
 using System;
 using System.Collections.Generic;
-using adventofcode.Data;
+using AdventOfCode.Data;
 
-namespace adventofcode{
-    class Day3{
-
-        string pathToData = @"./data/day3.txt";
+namespace AdventOfCode{
+    public class Day3
+        {
+        public string pathToData = @"./data/day3.txt";
         private int Dx;
         private int Dy;
         private char[,] data;
         private DataHandler _dataHandler;
-
-
         public Day3(DataHandler dataHandler){
             this._dataHandler = dataHandler;
         }
@@ -22,7 +20,7 @@ namespace adventofcode{
             this.Dx = data.GetLength(1);
         }
 
-        public int solvePart1(int XStep, int YStep){
+        public int SolvePart1(int XStep = 3, int YStep = 1){
             int nTrees = 0;
             int x = 0;
             int y = 0;
@@ -39,7 +37,7 @@ namespace adventofcode{
             return nTrees;
         }
 
-        public long solvePart2(){
+        public long SolvePart2(){
             int[,] steps = new int[,] 
                            {{1, 1},
                             {3, 1},
@@ -51,7 +49,7 @@ namespace adventofcode{
             for (int i = 0; i < steps.GetLength(0); i++){
                 int XStep = steps[i,0];
                 int YStep = steps[i,1];
-                int nTrees = this.solvePart1(XStep, YStep);
+                int nTrees = this.SolvePart1(XStep, YStep);
                 mult = mult*nTrees;
                 }
             return mult;
