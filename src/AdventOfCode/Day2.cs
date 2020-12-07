@@ -12,14 +12,14 @@ namespace AdventOfCode
         private char[] keyArray;
         private string[] passwordArray;
         private int D;
-        private DataHandler _dataHandler;
+        private readonly DataHandler _dataHandler;
         public Day2(DataHandler dataHandler){
             this._dataHandler = dataHandler;
         }
 
         public void ReadData()
         {
-            (this.rangeArray, this.keyArray, this.passwordArray) = this._dataHandler.readDataDay2(this.pathToData);
+            (this.rangeArray, this.keyArray, this.passwordArray) = this._dataHandler.ReadDataDay2(this.pathToData);
             this.D = this.keyArray.Length;
         }
 

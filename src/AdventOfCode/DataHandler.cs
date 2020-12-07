@@ -3,13 +3,13 @@ using System.Linq;
 
 namespace AdventOfCode.Data{
     public class DataHandler{
-        private string[] readTxtFile(string path){
+        private string[] ReadTxtFile(string path){
             return System.IO.File.ReadAllLines(path);
         }
 
-        public (int[], HashSet<int>) readDataDay1(string pathToData)
+        public (int[], HashSet<int>) ReadDataDay1(string pathToData)
         {
-            string[] lines = this.readTxtFile(pathToData);
+            string[] lines = ReadTxtFile(pathToData);
             int D = lines.Length;
             int[] data = new int[D];
             HashSet<int> dataset = new HashSet<int>();
@@ -24,9 +24,9 @@ namespace AdventOfCode.Data{
             return (data, dataset);
         }
 
-        public (int[,], char[], string[]) readDataDay2(string pathToData)
+        public (int[,], char[], string[]) ReadDataDay2(string pathToData)
         {
-            string[] lines = this.readTxtFile(pathToData);
+            string[] lines = ReadTxtFile(pathToData);
             int D = lines.Length;
             int[,] rangeArray = new int[D, 2];
             char[] keyArray = new char[D];
@@ -47,8 +47,8 @@ namespace AdventOfCode.Data{
             return (rangeArray, keyArray, passwordArray);
         }
 
-        public char[,] readDataDay3(string pathToData){
-            string[] lines = this.readTxtFile(pathToData);
+        public char[,] ReadDataDay3(string pathToData){
+            string[] lines = ReadTxtFile(pathToData);
             int Y = lines.Length;
             int X = lines[0].Length;
             int repeated = 100;
@@ -158,7 +158,8 @@ namespace AdventOfCode.Data{
                     .Concat(row)
                     .Concat(row)
                     .ToArray();
-                for(int r=0; r<X*repeated; r++){
+
+                for(int r = 0; r < X * repeated; r++){
                     data[i,r] = repeatedRow[r];
                 }
             }

@@ -8,12 +8,14 @@ namespace AdventOfCode.Tests
 {
     public class Day1Test
     {
-        private Day1 day; 
+        private readonly Day1 day; 
         public Day1Test()
         {
             var dataHandler = new DataHandler();
-            this.day = new Day1(dataHandler);
-            this.day.pathToData = @"../../../Data/day1.txt";
+            this.day = new Day1(dataHandler)
+            {
+                pathToData = @"../../../Data/day1.txt"
+            };
             this.day.ReadData();
         }
 

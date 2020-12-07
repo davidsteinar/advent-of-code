@@ -9,13 +9,13 @@ namespace AdventOfCode{
         private int Dx;
         private int Dy;
         private char[,] data;
-        private DataHandler _dataHandler;
+        private readonly DataHandler _dataHandler;
         public Day3(DataHandler dataHandler){
             this._dataHandler = dataHandler;
         }
 
         public void ReadData(){
-            this.data = this._dataHandler.readDataDay3(this.pathToData);
+            this.data = this._dataHandler.ReadDataDay3(this.pathToData);
             this.Dy = data.GetLength(0);
             this.Dx = data.GetLength(1);
         }
@@ -50,7 +50,7 @@ namespace AdventOfCode{
                 int XStep = steps[i,0];
                 int YStep = steps[i,1];
                 int nTrees = this.SolvePart1(XStep, YStep);
-                mult = mult*nTrees;
+                mult *= nTrees;
                 }
             return mult;
          }

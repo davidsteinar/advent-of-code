@@ -10,7 +10,7 @@ namespace AdventOfCode
         private int[] data;
         private HashSet<int> dataset;
 
-        private DataHandler _dataHandler;
+        private readonly DataHandler _dataHandler;
 
 
         public Day1(DataHandler dataHandler){
@@ -19,7 +19,7 @@ namespace AdventOfCode
 
         public void ReadData()
         {
-            (this.data, this.dataset) = this._dataHandler.readDataDay1(this.pathToData);
+            (this.data, this.dataset) = this._dataHandler.ReadDataDay1(this.pathToData);
         }
 
         public int SolvePart1()

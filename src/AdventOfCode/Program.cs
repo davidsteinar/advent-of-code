@@ -7,7 +7,7 @@ namespace AdventOfCode
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
